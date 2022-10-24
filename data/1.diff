@@ -1,0 +1,41 @@
+diff --git a/src/index.ts b/src/index.ts
+index d70a331..9515bb8 100644
+--- a/src/index.ts
++++ b/src/index.ts
+@@ -1,3 +1,8 @@
++export * from "./attribute-context";
++export * from "./check-group";
++export * from "./form-context";
+ export * from "./form";
+ export * from "./input-group";
++export * from "./list-group";
++export * from "./radio-group";
+ export * from "./select-group";
+diff --git a/tests/index.spec.tsx b/tests/index.spec.tsx
+new file mode 100644
+index 0000000..778e42f
+--- /dev/null
++++ b/tests/index.spec.tsx
+@@ -0,0 +1,22 @@
++import * as ReactForm from "../src";
++
++test.each([
++  // Components
++  "CheckGroup",
++  "Form",
++  "InputGroup",
++  "ListGroup",
++  "ListOption",
++  "RadioGroup",
++  "RadioOption",
++  "SelectGroup",
++
++  // Hooks
++  "useAttributeContext",
++  "useCheckboxAttribute",
++  "useFormContext",
++  "useSelectAttribute",
++  "useTextAttribute",
++])("'%s' is exported from the index file", (variable: string) => {
++  expect(ReactForm[variable as keyof typeof ReactForm]).not.toBeUndefined();
++});

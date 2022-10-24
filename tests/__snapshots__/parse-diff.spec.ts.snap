@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parse 1.diff 1`] = `
+[
+  {
+    "additions": 5,
+    "chunks": [
+      {
+        "changes": [
+          {
+            "add": true,
+            "content": "+export * from "./attribute-context";",
+            "ln": 1,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+export * from "./check-group";",
+            "ln": 2,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+export * from "./form-context";",
+            "ln": 3,
+            "type": "add",
+          },
+          {
+            "content": " export * from "./form";",
+            "ln1": 1,
+            "ln2": 4,
+            "normal": true,
+            "type": "normal",
+          },
+          {
+            "content": " export * from "./input-group";",
+            "ln1": 2,
+            "ln2": 5,
+            "normal": true,
+            "type": "normal",
+          },
+          {
+            "add": true,
+            "content": "+export * from "./list-group";",
+            "ln": 6,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+export * from "./radio-group";",
+            "ln": 7,
+            "type": "add",
+          },
+          {
+            "content": " export * from "./select-group";",
+            "ln1": 3,
+            "ln2": 8,
+            "normal": true,
+            "type": "normal",
+          },
+        ],
+        "content": "@@ -1,3 +1,8 @@",
+        "newLines": 8,
+        "newStart": 1,
+        "oldLines": 3,
+        "oldStart": 1,
+      },
+    ],
+    "deletions": 0,
+    "from": "src/index.ts",
+    "index": [
+      "d70a331..9515bb8",
+      "100644",
+    ],
+    "to": "src/index.ts",
+  },
+  {
+    "additions": 22,
+    "chunks": [
+      {
+        "changes": [
+          {
+            "add": true,
+            "content": "+import * as ReactForm from "../src";",
+            "ln": 1,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+",
+            "ln": 2,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+test.each([",
+            "ln": 3,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+  // Components",
+            "ln": 4,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+  "CheckGroup",",
+            "ln": 5,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+  "Form",",
+            "ln": 6,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+  "InputGroup",",
+            "ln": 7,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+  "ListGroup",",
+            "ln": 8,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+  "ListOption",",
+            "ln": 9,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+  "RadioGroup",",
+            "ln": 10,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+  "RadioOption",",
+            "ln": 11,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+  "SelectGroup",",
+            "ln": 12,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+",
+            "ln": 13,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+  // Hooks",
+            "ln": 14,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+  "useAttributeContext",",
+            "ln": 15,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+  "useCheckboxAttribute",",
+            "ln": 16,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+  "useFormContext",",
+            "ln": 17,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+  "useSelectAttribute",",
+            "ln": 18,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+  "useTextAttribute",",
+            "ln": 19,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+])("'%s' is exported from the index file", (variable: string) => {",
+            "ln": 20,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+  expect(ReactForm[variable as keyof typeof ReactForm]).not.toBeUndefined();",
+            "ln": 21,
+            "type": "add",
+          },
+          {
+            "add": true,
+            "content": "+});",
+            "ln": 22,
+            "type": "add",
+          },
+        ],
+        "content": "@@ -0,0 +1,22 @@",
+        "newLines": 22,
+        "newStart": 1,
+        "oldLines": 0,
+        "oldStart": 0,
+      },
+    ],
+    "deletions": 0,
+    "from": "/dev/null",
+    "index": [
+      "0000000..778e42f",
+    ],
+    "new": true,
+    "to": "tests/index.spec.tsx",
+  },
+]
+`;
