@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "lockFileMaintenance": { "enabled": true },
+  "packageRules": [
+    {
+      "matchPackageNames": ["node"],
+      "allowedVersions": "<=16"
+    },
+    {
+      "matchPackageNames": ["ts-jest", "@types/jest"],
+      "matchPackagePatterns": ["^jest", "^@testing-library/"],
+      "groupName": "testing packages"
+    },
+    {
+      "matchPackagePatterns": ["^eslint", "^@typescript-eslint/"],
+      "groupName": "eslint packages"
+    },
+    {
+      "matchPackageNames": ["react", "react-dom", "@types/react", "@types/react-dom"],
+      "groupName": "react packages"
+    }
+  ]
+}
