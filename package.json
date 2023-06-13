@@ -1,6 +1,6 @@
 {
     "name": "@adeattwood/diff-cov",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Simple CLI to get test coverage on a diff",
     "main": "./lib/index.js",
     "types": "./lib/index.d.ts",

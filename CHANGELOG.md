@@ -1,3 +1,9 @@
+# [v0.2.0](https://github.com/AdeAttwood/DiffCov/compare/v0.1.0...v0.2.0) (2023-06-13)
+
+### Features
+
+* update the coverage to exclude "normal" lines ([9192e62](https://github.com/AdeAttwood/DiffCov/commit/9192e6299547bfb18106af22363f1d10ecfa6ec6))
+
 # [v0.1.0](https://github.com/AdeAttwood/DiffCov/compare/v0.0.2...v0.1.0) (2023-05-31)
 
 ### Bug Fixes
