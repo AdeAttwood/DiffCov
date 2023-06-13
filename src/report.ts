@@ -54,7 +54,14 @@ export const printReport = (diff: Diff[], coverage: any) => {
         if (change.type === "del") {
           continue;
         }
+
         const line = change.ln || change.ln2;
+
+        if (change.type === "normal") {
+          console.log(line.toString().padStart(4, " "), "\x1b[0m", change.content.substring(1), "\x1b[0m");
+          continue;
+        }
+
         let color = "\x1b[0m";
         if (typeof fileCoverage[line] !== "undefined") {
           color = fileCoverage[line] > 0 ? "\x1b[32m" : "\x1b[31m";
