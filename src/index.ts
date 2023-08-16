@@ -5,6 +5,7 @@ import { hideBin } from "yargs/helpers";
 import exec from "./exec";
 
 import report from "./report";
+import lcovDiff from "./lcov-diff";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const parseDiff = require("./diff-parser");
@@ -21,11 +22,16 @@ const options: { [key: string]: Options } = {
     description: "The path to the lcov report file",
     type: "string",
   },
+  compare: {
+    description: "The path to the lcov report you wish to compare to the `coverage-file`",
+    type: "string",
+  },
 };
 
 type Argv = Arguments<
   Partial<{
     coverageFile: string;
+    compare?: string;
   }>
 >;
 
@@ -36,6 +42,10 @@ export const validate = async (argv: Argv) => {
         `Please ensure you have run tests with coverage enabled.`
     );
   }
+
+  if (argv.compare && !fs.existsSync(argv.compare)) {
+    return new Error(`Lcov compare file must be a valid file '${argv.compare}' provided.`);
+  }
 };
 
 export const run = async (argv = process.argv) => {
@@ -45,13 +55,19 @@ export const run = async (argv = process.argv) => {
     return error(validationError.message);
   }
 
+  const baseCoverage = await parseLcov.default(parsed.coverageFile);
+
+  if (parsed.compare) {
+    const compareCoverage = await parseLcov.default(parsed.compare);
+    return lcovDiff(baseCoverage, compareCoverage);
+  }
+
   const diffText = await exec(`git diff origin/HEAD...HEAD`);
   if (diffText.code > 0) {
     return error("Error loading the diff\n\n" + diffText.stderr);
   }
 
   const diff = parseDiff.default(diffText.stdout);
-  const coverage = await parseLcov.default(parsed.coverageFile);
 
-  report(diff, coverage);
+  report(diff, baseCoverage);
 };
