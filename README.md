@@ -2,7 +2,7 @@
 
 # Diff Cov
 
-Simple CLI to print diffs highlighted with test coverage status
+Simple CLI to print git and lcov diffs highlighted with test coverage status
 
 ![Example Output](assets/example-output.png)
 
@@ -45,6 +45,8 @@ git symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/0.x
 
 ## Usage
 
+### Git diff
+
 Before you run `diff-cov` you must run your test suite with coverage and output
 a `lcov` coverage file. You must also have all your changes committed to ensure
 it's included in the output.
@@ -62,3 +64,25 @@ diff-cov --coverageFile coverage/lcov.info
 
 A report is printed at the bottom and colored with a threshold of `90%`
 anything below this percentage coverage will be colored red.
+
+### LCov diff
+
+You can also print the coverage difference between to lcov.info files. To use
+this run your tests with coverage for a first time. After its finished you can
+copy your lcov.info file somewhere for later for example:
+
+```shell
+cp ./lcov.info /tmp/lcov.info
+```
+
+Then you can work on your test and run the tests once more with coverage to
+generate you a new `lcov.info` file. Then you can print the difference in
+coverage between the two files with:
+
+```shell
+diff-cov --compare /tmp/lcov.info
+```
+
+This can come in handy when you need to find out what a test is testing. You
+can create your base coverage file, comment out a test, run the tests again and
+diff the results.
