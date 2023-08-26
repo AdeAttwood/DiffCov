@@ -35,7 +35,7 @@ interface Diff {
 }
 
 export const printReport = (diff: Diff[], coverage: any) => {
-  const report = { total: 0, covered: 0 };
+  const report = { total: 0, covered: 0, percentage: 0 };
 
   for (const file of diff) {
     const fileCoverage = getCoverageForFile(file, coverage);
@@ -77,13 +77,13 @@ export const printReport = (diff: Diff[], coverage: any) => {
     }
   }
 
-  const percentage = (report.covered / report.total) * 100;
-  const color = percentage > 90 ? "\x1b[32m" : "\x1b[31m";
+  report.percentage = (report.covered / report.total) * 100;
+  const color = report.percentage > 90 ? "\x1b[32m" : "\x1b[31m";
 
   console.log("");
   console.log("Total Lines:        ", report.total.toString());
   console.log("Lines Covered:      ", report.covered.toString());
-  console.log("Coverage Percentage", color, percentage.toString() + "%", "\x1b[0m");
+  console.log("Coverage Percentage", color, report.percentage.toString() + "%", "\x1b[0m");
 
   return report;
 };
