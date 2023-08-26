@@ -69,5 +69,6 @@ export const run = async (argv = process.argv) => {
 
   const diff = parseDiff.default(diffText.stdout);
 
-  report(diff, baseCoverage);
+  const { percentage } = report(diff, baseCoverage);
+  process.exit(percentage > 90 ? 0 : 1);
 };
