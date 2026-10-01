@@ -28,7 +28,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "yargs": "^17.6.2"
+        "yargs": "^18.0.0"
     },
     "devDependencies": {
         "@types/jest": "^29.5.4",
